@@ -75,3 +75,20 @@ No persistent state between sessions in the demo. Score and kill count live on `
 | `lib/game/powerup.dart` | Power-up component |
 | `lib/screens/game_screen.dart` | GameWidget wrapper |
 | `lib/screens/game_over_screen.dart` | Game over overlay |
+
+## Dev notes
+
+### Flame 1.37.0 input API
+
+`HasTapDetector` and `TapDownInfo` were removed. Use:
+
+```dart
+import 'package:flame/events.dart';
+
+class PocketBomberGame extends FlameGame with TapCallbacks {
+  @override
+  void onTapDown(TapDownEvent event) {
+    final pos = event.canvasPosition; // Vector2 in game/canvas coordinates
+  }
+}
+```

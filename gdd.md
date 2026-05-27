@@ -4,8 +4,10 @@
 
 ### Platform
 - **Flutter + Flame**
-- Single codebase → iOS + Android (+ web, macOS, Windows, Linux as bonus)
 - Portrait mode only
+- **Active targets:** Android (release), Web (dev iteration)
+- **Deferred:** iOS — needs a Mac with Xcode; implement when ready to ship
+- **Dropped:** macOS, Windows, Linux — removed from project
 
 ### Why Flutter + Flame
 - Code-first, no visual editor — Claude Code can drive almost everything
