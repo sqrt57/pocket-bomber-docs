@@ -9,7 +9,7 @@ Design documents for the Pocket Bomber game. Source code is in the `source/` rep
 
 ## Progress
 
-Stages 0a, 0b, 0c, 1, 2 complete. **Next: Stage 3 — bombs & explosions.**
+Stages 0a, 0b, 0c, 1, 2, 3 complete. **Next: Stage 4 — enemies.**
 
 ## Policy
 
