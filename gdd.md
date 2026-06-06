@@ -45,7 +45,7 @@ Flutter compiles to 6 platforms from one codebase:
 - Odd dimensions both ways → classic hard wall pattern works
 
 ### Tile Types
-- **Hard walls** — indestructible, form the maze (at even col+row intersections)
+- **Hard walls** — indestructible, form the maze (at odd col+row intersections)
 - **Soft walls** — destructible, may hide power-ups
 - **Floor** — walkable
 - **Exit** — appears after all enemies are killed
@@ -140,7 +140,7 @@ Flutter compiles to 6 platforms from one codebase:
 
 ### Stage 1: Grid Rendering (1–2h)
 - Draw 9×11 grid with hard walls, soft walls, floor
-- Classic hard wall pattern (hard walls on even col+row intersections)
+- Classic hard wall pattern (hard walls on odd col+row intersections)
 - Tap detection on grid
 
 ### Stage 2: Player Movement (1–2h)
@@ -162,6 +162,10 @@ Flutter compiles to 6 platforms from one codebase:
 - Respawn up to 3 simultaneous, 10 total counter
 - Enemy dies from explosion
 - Player dies from explosion or enemy touch
+
+### Stage 4b: Hard Wall Grid Fix (done)
+- Shift hard walls from even to odd col+row intersections (`col.isOdd && row.isOdd`)
+- Player now spawns on clear floor; no dead-end corners
 
 ### Stage 5: Power-ups (1–2h)
 - Hidden under random soft walls
