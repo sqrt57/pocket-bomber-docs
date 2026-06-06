@@ -109,6 +109,8 @@ Flutter compiles to 6 platforms from one codebase:
 
 ## Implementation Plan
 
+**Progress:** Stages 0a, 0b, 0c, 1, 2, 3, 4, 4b, 5 complete. Next: Stage 5b — controls rework.
+
 ### Stage 0: Infrastructure Setup (1–2h)
 
 **0a: Dev Environment (30min–1h)**
