@@ -186,6 +186,7 @@ Flutter compiles to 6 platforms from one codebase:
 ### Stage 7: HUD (1h)
 - Top bar: score, bomb count, blast radius
 - Game over / level complete overlays
+- 3 lives per game; lose one on death, restart level; game over when lives reach 0; lives shown in HUD
 
 ### Stage 8: Polish & Bugfix (2–3h)
 - Edge cases (chain explosions, player in blast, spawn safety)
