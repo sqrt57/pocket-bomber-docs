@@ -51,12 +51,9 @@ Flutter compiles to 6 platforms from one codebase:
 - **Exit** — appears after all enemies are killed
 
 ### Controls
-- **Tap above player** → move up
-- **Tap below player** → move down
-- **Tap left of player** → move left
-- **Tap right of player** → move right
-- **Tap ON player** → place bomb
-- No on-screen buttons needed — whole grid is the input surface
+- **Tap any floor tile** → walk to that tile using pathfinding (BFS/A*); player follows the shortest walkable path, moving one tile at a time
+- **Dedicated bomb button** (on-screen, outside the grid) → place bomb at current position
+- Tap-on-player to place bomb is removed — too easy to trigger accidentally while navigating
 
 ### Bombs
 - Infinite supply (no ammo limit)
@@ -172,6 +169,10 @@ Flutter compiles to 6 platforms from one codebase:
 - Reveal on wall destruction
 - Extra bomb, blast radius, speed pickups
 - Apply effect on player contact
+
+### Stage 5b: Controls Rework (1–2h)
+- Replace tap-on-player bomb placement with a dedicated on-screen bomb button
+- Replace single-step tap movement with pathfinding: tap any floor tile, player walks the full path (BFS)
 
 ### Stage 6: Win / Lose / Score (1h)
 - Score counter (+100 per kill)
