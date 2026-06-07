@@ -19,12 +19,17 @@ main.dart
 
 ```
 PocketBomberGame (FlameGame)
+  ├── HudComponent           — top bar: score, lives, kill count
+  ├── BombButtonComponent    — on-screen bomb button (bottom-right)
   ├── GridComponent          — tile map render + tap hit-testing
-  ├── PlayerComponent        — player sprite, grid position, power-up state
-  ├── EnemyComponent (×0–3)  — random-wander AI, grid position
-  ├── BombComponent (×0–N)   — countdown timer, triggers ExplosionComponent
-  ├── ExplosionComponent     — blast rays in 4 cardinal directions
-  └── PowerUpComponent       — revealed on soft-wall destruction, collected on contact
+  │     ├── PlayerComponent  — player sprite, grid position, power-up state
+  │     ├── EnemyComponent (×0–3)  — random-wander AI, grid position
+  │     ├── BombComponent (×0–N)   — countdown timer, triggers ExplosionComponent
+  │     ├── ExplosionComponent     — blast rays in 4 cardinal directions
+  │     ├── PowerUpComponent       — revealed on soft-wall destruction, collected on contact
+  │     └── ExitComponent          — appears after all 10 enemies killed
+  ├── _WinOverlay            — "YOU WIN" overlay, tap to restart
+  └── _GameOverOverlay       — "GAME OVER" overlay, tap to restart
 ```
 
 ## Coordinate system
@@ -54,11 +59,12 @@ Taps are handled in `PocketBomberGame.onTapDown`. Tap position is converted to g
 
 ```
 playing  ──(all 10 enemies killed)──► exit tile appears
-playing  ──(player reaches exit)────► level complete
-playing  ──(player hit)─────────────► game over → restart
+playing  ──(player reaches exit)────► win overlay  ──(tap)──► new game
+playing  ──(player hit, lives > 0)──► level restart (score + lives preserved)
+playing  ──(player hit, lives = 0)──► game over overlay  ──(tap)──► new game
 ```
 
-No persistent state between sessions in the demo. Score and kill count live on `PocketBomberGame` and are read by the HUD.
+Score (+100/kill) and lives (3 per game) live on `PocketBomberGame`. They persist across level restarts but reset on new game. No persistent state between app sessions.
 
 ## Key files
 
@@ -73,8 +79,8 @@ No persistent state between sessions in the demo. Score and kill count live on `
 | `lib/game/bomb.dart` | Bomb countdown + explosion trigger |
 | `lib/game/explosion.dart` | Blast ray component |
 | `lib/game/powerup.dart` | Power-up component |
+| `lib/game/exit_component.dart` | Exit tile — appears after all 10 enemies killed |
 | `lib/screens/game_screen.dart` | GameWidget wrapper |
-| `lib/screens/game_over_screen.dart` | Game over overlay |
 
 ## Dev notes
 
