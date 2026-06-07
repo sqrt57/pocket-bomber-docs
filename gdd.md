@@ -81,8 +81,8 @@ Flutter compiles to 6 platforms from one codebase:
 
 ### Lose Condition
 - One hit = dead (from explosion or enemy touch)
-- Restart level
-- No lives system
+- Lose one life → restart level
+- 3 lives per game; game over when lives reach 0
 
 ### Power-ups (hidden under soft walls, revealed on destruction)
 - 💣 **Extra bomb** — allows one more simultaneous bomb on grid
@@ -109,7 +109,7 @@ Flutter compiles to 6 platforms from one codebase:
 
 ## Implementation Plan
 
-**Progress:** Stages 0a, 0b, 0c, 1, 2, 3, 4, 4b, 5 complete. Next: Stage 5b — controls rework.
+**Progress:** Stages 0a, 0b, 0c, 1, 2, 3, 4, 4b, 5, 5b complete. Next: Stage 6 — Win / Lose / Score.
 
 ### Stage 0: Infrastructure Setup (1–2h)
 
@@ -181,12 +181,12 @@ Flutter compiles to 6 platforms from one codebase:
 - Kill counter tracking 10 total
 - Exit tile appears after 10 kills
 - Win screen on exit reached
-- Death screen with restart
+- 3 lives per game; lose one on death → restart level; game over screen when lives reach 0
 
 ### Stage 7: HUD (1h)
 - Top bar: score, bomb count, blast radius
 - Game over / level complete overlays
-- 3 lives per game; lose one on death, restart level; game over when lives reach 0; lives shown in HUD
+- Lives count shown in HUD
 
 ### Stage 8: Polish & Bugfix (2–3h)
 - Edge cases (chain explosions, player in blast, spawn safety)
