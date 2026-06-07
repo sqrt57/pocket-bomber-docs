@@ -189,6 +189,7 @@ Flutter compiles to 6 platforms from one codebase:
 - Lives count shown in HUD
 
 ### Stage 8: Polish & Bugfix (2–3h)
+- Layout: center game content vertically so no large black void below the grid (~300dp gap on tall phones)
 - Edge cases (chain explosions, player in blast, spawn safety)
 - Balancing soft wall density and power-up frequency
 - Playtest and tweak
